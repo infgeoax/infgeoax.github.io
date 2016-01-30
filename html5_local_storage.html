@@ -2,14 +2,25 @@
 <html>
   <head>
     <title>Local Storage Sample</title>
-    <script type="text/javascript">
-      if (typeof(Storage) !== "undefined") {
-      } else {
-      alert("No local storage found!");
-      }
-    </script>
+    <script type="text/javascript" src="html5_local_storage.js"></script>
   </head>
-  <body>
-    <textarea id="editor" rows="20" cols="80"></textarea>
+  <body onload="checkLocalStorage('editor')"
+	onunload="autosaveToLocalStorage('editor')">
+
+    <p>
+      This small example shows how to save texts to the browser's local storage and load them the next time we open the page.
+    </p>
+    <p>
+      Try enter some text below, and <a href="">reload</a> the page.
+    </p>
+    <p>
+      <textarea id="editor" rows="20" cols="80" placeholder="Enter some text here."></textarea>
+    </p>
+    <p>
+      <button onclick="clearAll('editor');">
+	Clear All
+      </button>
+    </p>
+    <p id="status"></p>
   </body>
 </html>
